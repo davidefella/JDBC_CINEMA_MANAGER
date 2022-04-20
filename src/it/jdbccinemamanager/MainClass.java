@@ -1,12 +1,12 @@
 package it.jdbccinemamanager;
 
 import it.jdbccinemamanager.model.Film;
-import it.jdbccinemamanager.model.FilmDao;
+import it.jdbccinemamanager.model.FilmDAO;
 
 public class MainClass {
 
 	public static void main(String[] args) {
-		FilmDao filmDAO = new FilmDao();
+		FilmDAO filmDAO = new FilmDAO();
 		
 	}
 

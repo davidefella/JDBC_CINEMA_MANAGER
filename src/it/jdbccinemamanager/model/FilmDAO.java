@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import it.jdbccinemamanager.util.ConnectionFactory;
 
-public class FilmDao {
+public class FilmDAO {
 
 	/*
 	 * Ricorda sono operazione CRUD - Creation Read Update Delete
@@ -80,15 +80,15 @@ public class FilmDao {
 
 	}
 
-	public Film getFilmByID(int id) {
+	public Film getFilmByID(int codFilm) {
 		PreparedStatement psFilmByID = null;
 		ResultSet rs = null;
 		Film film = null;
 
 		try {
-			String getFilmByID = "select * from film where id = ?";
+			String getFilmByID = "select * from film where codFilm = ?";
 			psFilmByID = ConnectionFactory.getConnection().prepareStatement(getFilmByID);
-			psFilmByID.setInt(1, id);
+			psFilmByID.setInt(1, codFilm);
 			rs = psFilmByID.executeQuery();
 
 			if (rs.next()) {
