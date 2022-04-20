@@ -44,6 +44,19 @@ public class ProiezioniDAO {
 		return row_inserted;
 	}
 
+	public boolean insertProiezioniAll(List<Proiezioni> proiezioni) {
+		boolean rows_inserted = true;
+
+		for (Proiezioni p : proiezioni) {
+			rows_inserted = insertProiezioni(p);
+
+			if (rows_inserted == false)
+				return false;
+		}
+
+		return rows_inserted;
+	}
+
 	public List<Proiezioni> getAllProiezioni() {
 		FilmDAO filmDAO = new FilmDAO();
 		SalaDAO salaDAO = new SalaDAO();
@@ -118,12 +131,12 @@ public class ProiezioniDAO {
 		return proiezioni;
 
 	}
-	
+
 	public List<Proiezioni> getProiezioniByCodFilm(int codFilm) {
 		PreparedStatement psProiezioniByCodFilm = null;
 		ResultSet rs = null;
 		Proiezioni proiezione = null;
-		List<Proiezioni> proiezioni = new ArrayList<>(); 
+		List<Proiezioni> proiezioni = new ArrayList<>();
 		FilmDAO filmDAO = new FilmDAO();
 		SalaDAO salaDAO = new SalaDAO();
 

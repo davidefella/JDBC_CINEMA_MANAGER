@@ -13,6 +13,13 @@ public class Proiezioni {
 	public Proiezioni() {
 	}
 
+	public Proiezioni(double incasso, Date dataproiezione, Sala sala, Film film) {
+		this.incasso = incasso;
+		this.dataproiezione = dataproiezione;
+		this.sala = sala;
+		this.film = film;
+	}
+
 	public Proiezioni(int codproiezione, double incasso, Date dataproiezione, Sala sala, Film film) {
 		this.codproiezione = codproiezione;
 		this.incasso = incasso;
