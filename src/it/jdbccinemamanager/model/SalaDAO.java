@@ -43,6 +43,19 @@ public class SalaDAO {
 
 	}
 
+	public boolean insertSalaAll(List<Sala> sale) {
+		boolean rows_inserted = true;
+
+		for (Sala s : sale) {
+			rows_inserted = insertSala(s);
+
+			if (rows_inserted == false)
+				return false;
+		}
+
+		return rows_inserted;
+	}
+
 	public List<Sala> getAllSala() {
 		Statement st = null;
 		ResultSet rs = null;

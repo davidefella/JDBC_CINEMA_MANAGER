@@ -47,6 +47,19 @@ public class FilmDAO {
 		return row_inserted;
 	}
 
+	public boolean insertFilmAll(List<Film> films) {
+		boolean rows_inserted = true;
+
+		for (Film f : films) {
+			rows_inserted = insertFilm(f);
+
+			if (rows_inserted == false)
+				return false;
+		}
+
+		return rows_inserted;
+	}
+
 	public List<Film> getAllFilm() {
 		Statement st = null;
 		ResultSet rs = null;

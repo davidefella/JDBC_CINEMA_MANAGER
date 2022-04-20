@@ -13,6 +13,16 @@ public class Film {
 	public Film() {
 	}
 
+	public Film(int annoproduzione, String titolo, String nazionalita, String regista, String attori,
+			String genere) {
+		this.annoproduzione = annoproduzione;
+		this.titolo = titolo;
+		this.nazionalita = nazionalita;
+		this.regista = regista;
+		this.attori = attori;
+		this.genere = genere;
+	}
+	
 	public Film(int codfilm, int annoproduzione, String titolo, String nazionalita, String regista, String attori,
 			String genere) {
 		this.codfilm = codfilm;

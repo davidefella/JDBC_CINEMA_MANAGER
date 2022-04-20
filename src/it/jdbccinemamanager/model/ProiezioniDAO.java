@@ -118,6 +118,44 @@ public class ProiezioniDAO {
 		return proiezioni;
 
 	}
+	
+	public List<Proiezioni> getProiezioniByCodFilm(int codFilm) {
+		PreparedStatement psProiezioniByCodFilm = null;
+		ResultSet rs = null;
+		Proiezioni proiezione = null;
+		List<Proiezioni> proiezioni = new ArrayList<>(); 
+		FilmDAO filmDAO = new FilmDAO();
+		SalaDAO salaDAO = new SalaDAO();
+
+		try {
+			String getProiezioniByID = "SELECT * FROM proiezioni WHERE codfilm = ?";
+			psProiezioniByCodFilm = ConnectionFactory.getConnection().prepareStatement(getProiezioniByID);
+			psProiezioniByCodFilm.setInt(1, codFilm);
+			rs = psProiezioniByCodFilm.executeQuery();
+
+			if (rs.next()) {
+				proiezione = new Proiezioni();
+				proiezione.setCodproiezione(rs.getInt("codproiezioni"));
+				proiezione.setDataproiezione(rs.getDate("dataproiezione"));
+				proiezione.setIncasso(rs.getDouble("incasso"));
+
+				int codFilmRs = rs.getInt("codFilm");
+				proiezione.setFilm(filmDAO.getFilmByID(codFilmRs));
+
+				int codSalaRs = rs.getInt("codSala");
+				proiezione.setSala(salaDAO.getSalaByID(codSalaRs));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Connection error");
+			e.printStackTrace();
+		} finally {
+			ConnectionFactory.closeConnection();
+		}
+
+		return proiezioni;
+
+	}
 
 	/*
 	 * @TODO: implementare update chiavi esterne (sala e film)

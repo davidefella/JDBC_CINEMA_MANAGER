@@ -10,6 +10,12 @@ public class Sala {
 	public Sala() {
 	}
 
+	public Sala(int numero_posti, String nome, String citta) {
+		this.numero_posti = numero_posti;
+		this.nome = nome;
+		this.citta = citta;
+	}
+
 	public Sala(int codsala, int numero_posti, String nome, String citta) {
 		this.codsala = codsala;
 		this.numero_posti = numero_posti;
