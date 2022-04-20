@@ -7,27 +7,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		FilmDao filmDAO = new FilmDao();
-
-		Film film = readFilmFromScanner();
-
-		filmDAO.insertFilm(film);
-
-		for (Film f : filmDAO.getAllFilm())
-			System.out.println(f.toString());
-
-		System.out.println("* * * * UPDATE * * * * ");
-
-		film.setAttori("ATTORI MODIFICATI PER UPDATE");
-		filmDAO.updateFilm(film, 4);
-
-		System.out.println("* * * * DELETE * * * * ");
-		filmDAO.deleteFilm(4);
-
-		System.out.println("* * * * GET ALL (AGAIN) * * * * ");
-
-		for (Film f : filmDAO.getAllFilm())
-			System.out.println(f.toString());
-
+		
 	}
 
 	public static Film readFilmFromScanner() {
