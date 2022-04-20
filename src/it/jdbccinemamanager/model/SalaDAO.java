@@ -103,6 +103,39 @@ public class SalaDAO {
 		return sala;
 	}
 
+	public List<Sala> getSalaByNomeCitta(String citta) {
+		PreparedStatement psSalaByNomeCitta = null;
+		ResultSet rs = null;
+
+		Sala sala;
+		List<Sala> saleByCitta = new ArrayList<>();
+
+		try {
+			String getSalaByNomeCitta = "select * from sale where citta = ?";
+			psSalaByNomeCitta = ConnectionFactory.getConnection().prepareStatement(getSalaByNomeCitta);
+			psSalaByNomeCitta.setString(1, citta);
+			rs = psSalaByNomeCitta.executeQuery();
+
+			while (rs.next()) {
+				sala = new Sala();
+				sala.setCitta(rs.getString("citta"));
+				sala.setNome(rs.getString("nome"));
+				sala.setNumero_posti(rs.getInt("posti"));
+				sala.setCodsala(rs.getInt("codsala"));
+
+				saleByCitta.add(sala);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Connection error");
+			e.printStackTrace();
+		} finally {
+			ConnectionFactory.closeConnection();
+		}
+
+		return saleByCitta;
+	}
+
 	public boolean updateSala(Sala sala, int old_codSala) {
 		PreparedStatement psUpdateSala = null;
 		int row_affected = 0;

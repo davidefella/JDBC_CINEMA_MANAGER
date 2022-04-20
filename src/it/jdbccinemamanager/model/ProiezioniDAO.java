@@ -163,7 +163,7 @@ public class ProiezioniDAO {
 		boolean row_deleted = true;
 
 		try {
-			String deleteProiezione = "DELETE FROM proiezioni WHERE codproiezione = ?";
+			String deleteProiezione = "DELETE FROM proiezioni WHERE codproiezioni = ?";
 			psDeleteProiezioni = ConnectionFactory.getConnection().prepareStatement(deleteProiezione);
 			psDeleteProiezioni.setInt(1, codProiezione);
 			row_affected = psDeleteProiezioni.executeUpdate();
