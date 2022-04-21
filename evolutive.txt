@@ -1,0 +1,8 @@
+1) Implementare funzionalità di Backup DB utilizzando la classe BackupWriter
+2) Modificare la funzionalità di aggiornamento nella classe ProiezioneDAO prevedendo aggiornamento anche delle istanze di Film e Sala
+3) Prevedere un controllo nei metodi getRandomFilm() e getRandomSala() nel caso non ci siano chiavi nella tabelle
+4) Fare un refactoring dei metodi del punto 3 (e il metodo extractRandomNumber) e spostarli in una classe di utility 
+5) Prevedere una classe di StartUp con un metodo statico che viene invocato ad ogni avvio del programma nel main. 
+Questo metodo (che puoi chiamare "setupDB" ad esempio) deve contenere le DDL per la cancellazione del database e poi per la creazione da zero 
+tramite PreparedStatment. 
+Vedi sezione DDL e DML. 
