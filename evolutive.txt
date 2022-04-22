@@ -6,3 +6,13 @@
 Questo metodo (che puoi chiamare "setupDB" ad esempio) deve contenere le DDL per la cancellazione del database e poi per la creazione da zero 
 tramite PreparedStatment. 
 Vedi sezione DDL e DML. 
+6) Sostituire la Collection List con la Collection Set nei metodi getRandomSala() e getRandomFilm()
+7) Nei metodi readProiezioniFromData(), readSaleFromData() e readFilmsFromData() modificare il modo in cui generiamo i dati di test
+prevedendo dei cicli condizionali oppure dei dizionari di parole causali. 
+8)Prevedere almeno 5 test case di JUnit 
+
+
+BUG FIX 
+Nello switch case 0 --> prevedere il salvataggio dei dati di test
+riga 149 - ProiezioniDAO mettere while non if
+

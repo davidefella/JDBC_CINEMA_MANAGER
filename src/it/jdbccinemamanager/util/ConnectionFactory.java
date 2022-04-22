@@ -11,7 +11,13 @@ public class ConnectionFactory {
 	private static final String PASSWORD = "postgres";
 
 	public static Connection getConnection() {
-
+		
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		if (conn != null)
 			return conn;
 
