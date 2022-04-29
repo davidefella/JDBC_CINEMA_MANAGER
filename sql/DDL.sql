@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS public.proiezioni
         REFERENCES public.film (codfilm),
     CONSTRAINT fk_cod_sale FOREIGN KEY (codsala)
         REFERENCES public.sale (codsala)
-)
+);
 
 
 CREATE OR replace VIEW proiezioni_totali AS
