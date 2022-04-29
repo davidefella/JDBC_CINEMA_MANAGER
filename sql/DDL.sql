@@ -4,7 +4,7 @@ CREATE DATABASE "JDBC_Cinema_Manager"
     WITH 
     OWNER = postgres
     ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1;
+    CONNECTION LIMIT = -1;*/
     
   
  /* TABLES CREATION */
